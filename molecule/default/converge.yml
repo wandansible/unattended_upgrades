@@ -1,0 +1,24 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include wandansible.unattended_upgrades"
+      ansible.builtin.include_role:
+        name: "wandansible.unattended_upgrades"
+      vars:
+        unattended_upgrades_config: |
+          APT::Periodic::Unattended-Upgrade "1";
+          APT::Periodic::Update-Package-Lists "1";
+          APT::Periodic::AutocleanInterval "7";
+
+          Unattended-Upgrade::Origins-Pattern {
+            "site=apt.grafana.com,a=stable,c=main";
+            "site=download.docker.com,o=Docker,c=stable";
+            "site=dl.cloudsmith.io,o=cloudsmith/caddy/stable,c=main";
+          };
+
+          Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";
+          Unattended-Upgrade::Remove-Unused-Dependencies "true";
+
+          Unattended-Upgrade::Mail "sysadmin@example.org";
+          Unattended-Upgrade::MailReport "only-on-error";

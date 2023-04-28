@@ -1,0 +1,32 @@
+---
+name: Lint
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ansible-lint:
+    name: Ansible Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Lint ansible
+        uses: wandansible/action-ansible-lint@v1
+
+  jinja2-lint:
+    name: Jinja2 Lint
+    runs-on: ubuntu-latest
+    env:
+      J2LINT_FILES_REGEX: '^templates/.+$'
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Lint jinja2 files
+        uses: wandansible/action-j2lint@v1

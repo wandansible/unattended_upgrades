@@ -1,0 +1,18 @@
+---
+argument_specs:
+  main:
+    short_description: Install and configure apt unattended upgrades
+    description: |
+      Installs unattended upgrades for apt and allows the default configuration to be overrided.
+    options:
+      unattended_upgrades_config_template:
+        description: Template file for the unattended upgrades configuration
+        type: str
+        default: "unattended-upgrades"
+
+      unattended_upgrades_config:
+        description: |
+          Contents of the unattended upgrades configuration file,
+          or empty string to leave file as is
+        type: str
+        default: ""
