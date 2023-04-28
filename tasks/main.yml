@@ -1,0 +1,15 @@
+---
+- name: Install unattended-upgrades
+  ansible.builtin.apt:
+    pkg: "unattended-upgrades"
+    install_recommends: false
+    state: present
+
+- name: Configure unattended-upgrades
+  ansible.builtin.template:
+    src: "{{ unattended_upgrades_config_template }}"
+    dest: "/etc/apt/apt.conf.d/52unattended-upgrades-ansible"
+    owner: "root"
+    group: "root"
+    mode: "u=rw,g=r,o=r"
+  when: unattended_upgrades_config != ""

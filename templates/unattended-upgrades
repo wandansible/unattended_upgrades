@@ -1,0 +1,3 @@
+# {{ ansible_managed }}
+
+{{ unattended_upgrades_config }}
