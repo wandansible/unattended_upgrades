@@ -22,7 +22,7 @@ jobs:
     name: Jinja2 Lint
     runs-on: ubuntu-latest
     env:
-      J2LINT_FILES_REGEX: '^templates/.+$'
+      J2LINT_FILES_REGEX: "^templates/.+$"
     steps:
       - name: Checkout repo
         uses: actions/checkout@v5
