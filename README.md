@@ -1,7 +1,7 @@
 Ansible role: unattended\_upgrades
 =================================
 
-Installs unattended upgrades for apt and allows the default configuration to be overrided.
+Installs unattended upgrades for apt and allows the default configuration to be overridden.
 
 Role Variables
 --------------
@@ -10,7 +10,7 @@ Role Variables
 ENTRY POINT: main - Install and configure apt unattended upgrades
 
         Installs unattended upgrades for apt and allows the default
-        configuration to be overrided.
+        configuration to be overridden.
 
 OPTIONS (= is mandatory):
 
